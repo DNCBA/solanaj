@@ -2,6 +2,7 @@ package org.p2p.solanaj.core;
 
 import java.util.List;
 
+import org.bitcoinj.core.Base58;
 import org.bitcoinj.crypto.DeterministicHierarchy;
 import org.bitcoinj.crypto.DeterministicKey;
 import org.bitcoinj.crypto.HDKeyDerivation;
@@ -20,7 +21,7 @@ public class Account {
         this.keyPair = TweetNaclFast.Signature.keyPair_fromSecretKey(secretKey);
     }
 
-    private Account(TweetNaclFast.Signature.KeyPair keyPair) {
+    public Account(TweetNaclFast.Signature.KeyPair keyPair) {
         this.keyPair = keyPair;
     }
 
@@ -41,5 +42,9 @@ public class Account {
 
     public byte[] getSecretKey() {
         return keyPair.getSecretKey();
+    }
+
+    public String getSecretKeyBase58() {
+        return Base58.encode(keyPair.getSecretKey());
     }
 }
