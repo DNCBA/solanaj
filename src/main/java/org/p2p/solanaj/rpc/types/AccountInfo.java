@@ -16,7 +16,7 @@ public class AccountInfo extends RpcResultObject {
         @Json(name = "owner")
         private String owner;
         @Json(name = "rentEpoch")
-        private long rentEpoch;
+        private String rentEpoch;
 
         public List<String> getData() {
             return data;
@@ -34,7 +34,7 @@ public class AccountInfo extends RpcResultObject {
             return owner;
         }
 
-        public long getRentEpoch() {
+        public String getRentEpoch() {
             return rentEpoch;
         }
 
